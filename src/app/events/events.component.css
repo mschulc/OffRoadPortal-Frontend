@@ -1,0 +1,43 @@
+.kaffel{
+  width: auto;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.row{
+  background-color: rgb(45, 48, 63);
+}
+
+.bigButton
+{
+  background-color: white;
+  height: 350px;
+  width: 450px;
+  border-radius: 40px;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  transition: transform 250ms;
+}
+
+.bigButton:hover{
+  transform: translateY(-10px);
+  font-weight: bold;
+}
+
+.icon{
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.image{
+  height: 150px;
+  width: auto;
+}
+
+.text{
+  font-size: 20px;
+}

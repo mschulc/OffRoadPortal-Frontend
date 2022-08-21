@@ -1,0 +1,38 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+.btn
+{
+  padding: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-dark.active, .open>.dropdown-toggle.btn-dark {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+.btn-light{
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-light:hover, .btn-light:focus, .btn-light:active, .btn-light.active, .open>.dropdown-toggle.btn-light {
+  font-weight: bold;
+}

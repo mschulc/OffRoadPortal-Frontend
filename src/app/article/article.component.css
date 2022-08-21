@@ -1,0 +1,31 @@
+.u-image{
+  height: 400px;
+  width: auto;
+  object-fit: cover;
+  margin-top: 25px;
+  background-color: blue;
+}
+
+.content{
+  margin-top: 40px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.title{
+  margin-top: 60px;
+}
+
+.author
+{
+  font-size: 14px;
+  margin-bottom: 60px;
+}
+
+.textauthor{
+  float: right;
+  color: #000;
+  font-style:normal;
+  font-weight: normal;
+  margin-top: 20px;
+}

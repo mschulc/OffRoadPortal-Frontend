@@ -1,0 +1,58 @@
+
+
+.bg-image
+{
+  width: auto;
+  height: 530px;
+  background: url(/assets/images/background.jpg) no-repeat top left;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.titleimg{
+  margin-top: 40px;
+}
+
+.u-offroad{
+  float: right;
+}
+
+.u-portal{
+  float: left;
+}
+
+.guzik{
+  border-radius: 35px;
+  height: 260px;
+  width: 260px;
+  margin-left: 55px;
+  background-color: aliceblue;
+  margin-top: -50px;
+  margin-bottom: 60px;
+  transition: transform 250ms;
+}
+.icon{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.icon2{
+  margin-top: 42px;
+  margin-bottom: 10px;
+}
+
+.u-section-2
+{
+  background-color: rgb(45, 48, 63);
+  height: auto;
+  width: 100%;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+}
+
+.guzik:hover {
+  transform: translateY(-6px);
+}

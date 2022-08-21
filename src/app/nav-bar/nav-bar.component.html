@@ -1,0 +1,43 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 mr-1">
+    <div class="container">
+      <a class="navbar-brand ml-2" [routerLink]="['/']"><img src="/assets/images/logo.png" width="40" class="d-sm-inline-flex mr-1">
+         OffRoadPortal
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse d-sm-inline-flex" [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+            <button class="btn btn-light" [routerLink]="['/']">Home</button>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <button class="btn btn-light" [routerLink]="['/articles']">Artykuły</button>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <button class="btn btn-light" [routerLink]="['/events']">Wydarzenia</button>
+          </li><li class="nav-item" [routerLinkActive]="['link-active']">
+            <button class="btn btn-light" [routerLink]="['/tutorials']"> Poradniki</button>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <button class="btn btn-light" [routerLink]="['/roads']">Trasy</button>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item mr-2 mb-1" [routerLinkActive]="['link-active']">
+            <button class="btn btn-outline-dark" [routerLink]="['/login']">Login</button>
+          </li>
+          <li class="nav-item mr-2" [routerLinkActive]="['link-active']">
+            <button class="btn btn-dark" [routerLink]="['/signin']">Zarejestruj się</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

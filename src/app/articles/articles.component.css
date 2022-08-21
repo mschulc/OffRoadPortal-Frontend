@@ -1,0 +1,28 @@
+.image
+{
+  height: 150px;
+  max-width: 210px;
+  margin-bottom: 5px;
+}
+.u-image{
+  height: 144px;
+  width: 200px;
+  float: right;
+  object-fit: cover;
+  margin-top: 4px;
+}
+.content{
+  height: 150px;
+  margin-bottom: 5px;
+}
+
+.row
+{
+  border: 1px;
+  border-style: outset;
+}
+
+.row:hover
+{
+  background-color: rgba(202, 202, 207, 0.418);
+}
