@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Article } from '../entities/article';
+import { HttpClient } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Article } from '../interfaces/article';
 import { ArticleService } from '../services/article.service';
 
 @Component({
@@ -9,11 +10,28 @@ import { ArticleService } from '../services/article.service';
 })
 export class ArticlesComponent implements OnInit {
 
-  constructor(private articleService: ArticleService) { }
+  public articles: Article[] = [];
+  baseURL: string = "https://localhost:7166/";
 
-  articles: Article[] | undefined;
+  constructor(private articleService: ArticleService, http: HttpClient) {
+    http.get<Article[]>(this.baseURL + 'article').subscribe(result => {
+      this.articles = result;
+    }, error => console.error(error));
+  }
+
+  image: string = "/assets/offroad_zdjecia_test/";
 
   ngOnInit(): void {
-    this.articles = this.articleService.getArticles();
   }
+
+  ShortDisplayText(Content: string): string
+    {
+      if(Content.length > 300)
+      {
+        return Content.slice(0, 300) + "...";
+      }
+      else {
+        return Content;
+      }
+    }
 }
