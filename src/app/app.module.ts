@@ -21,6 +21,8 @@ import { HolidaysComponent } from './holidays/holidays.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
 import { CarviewComponent } from './carview/carview.component';
 import { AccountService } from './services/account.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { AccountService } from './services/account.service';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'events', component: EventsComponent },

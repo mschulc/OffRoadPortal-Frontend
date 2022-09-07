@@ -92,3 +92,16 @@ body {
 {
   margin-bottom: 5px;
 }
+
+.errorMessage
+{
+  margin-top: 15px;;
+  color:red;
+}
+.btn{
+  margin-top: 30px;
+}
+
+.infotext{
+  maring-top: 30px;
+}

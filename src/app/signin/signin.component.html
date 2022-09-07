@@ -1,47 +1,50 @@
 <body class="text-center">
-
   <main class="form-signin w-100 m-auto">
-    <form>
+    <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" *ngIf="!isRegistered">
       <img class="mb-4" src="/assets/icons/globe.png" alt="" width="100">
       <h1 class="h3 mb-3 fw-normal">Załóż konto</h1>
 
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Imię">
+        <input type="text" name="fisrstName" class="form-control" id="floatingInput" placeholder="Imię" [(ngModel)]="model.firstName">
         <label for="floatingInput">Imię</label>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Nazwisko">
+        <input type="text" name="lastName" class="form-control" id="floatingInput" placeholder="Nazwisko" [(ngModel)]="model.lastName">
         <label for="floatingInput">Nazwisko</label>
       </div>
       <div class="form-floating">
-        <input type="number" class="form-control" id="floatingInput" placeholder="Wiek">
-        <label for="floatingInput">Wiek</label>
+        <input type="text" name="birthDate" class="form-control" id="floatingInput" placeholder="Data urodzenia" [(ngModel)]="model.birthDate" bsDatepicker [bsConfig]="{ isAnimated: true }">
+        <label for="floatingInput">Data urodzenia</label>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Miasto">
+        <input type="text" name="city" class="form-control" id="floatingInput" placeholder="Miasto" [(ngModel)]="model.city">
         <label for="floatingInput">Miasto</label>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Telefon">
+        <input type="text" name="phoneNumber" class="form-control" id="floatingInput" placeholder="Telefon" [(ngModel)]="model.phoneNumber">
         <label for="floatingInput">Telefon</label>
       </div>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="model.email">
         <label for="floatingInput">Email</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="model.password">
         <label for="floatingPassword">Hasło</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm password">
+        <input type="password" name="confirmPassword" class="form-control" id="floatingPassword" placeholder="Confirm password" [(ngModel)]="model.confirmPassword">
         <label for="floatingPassword">Potwierdź hasło</label>
       </div>
       <button class="w-100 btn btn-lg btn-dark" type="submit">Zarejestruj się</button>
+      <div class="errorMessage">{{errorMessage}}</div>
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
     </form>
+    <div class="infotext" *ngIf="isRegistered">
+       <h6> Konto zarejestrowano poprawnie.<br> Gdyby była zaimplementowana funkcjonalność do potwierdzenia konta za pomocą linku wysłanego pocztą email<br>
+        To trzeba by było kliknąć w link ze swojej skrzynki elektronicznej, aby potwierdzić. Przyjmijmy, że tak właśnie się stało.<br><br>
+        Przejdź do logowania.<br></h6>
+       <button class="btn btn-outline-dark" [routerLink]="['/login']">Login</button>
+    </div>
   </main>
-
-
-
-    </body>
+</body>

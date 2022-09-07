@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
   currentUser$: Observable<User> | undefined;
+  errorMessage: string = "";
 
   constructor(private accountService: AccountService, private router: Router) {}
 
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/userpanel'])
     }, error => {
       console.log(error);
+      if(error.error == "Invalid username of password"){
+          this.errorMessage = "Błędny email lub hasło"
+      }
     })
   }
 }
