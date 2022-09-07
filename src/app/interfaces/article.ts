@@ -6,5 +6,6 @@ export interface Article {
   author: string;
   createdDate: string;
   modifiedDate: string;
+  imageUrl: string;
   comments: Array<object>;
 }

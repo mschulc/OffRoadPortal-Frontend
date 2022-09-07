@@ -28,13 +28,20 @@
           </li>
         </ul>
       </div>
-      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded }">
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" *ngIf="!(accountService.currentUser$ | async)" [ngClass]="{ show: isExpanded }">
         <ul class="navbar-nav flex-grow">
           <li class="nav-item mr-2 mb-1" [routerLinkActive]="['link-active']">
             <button class="btn btn-outline-dark" [routerLink]="['/login']">Login</button>
           </li>
           <li class="nav-item mr-2" [routerLinkActive]="['link-active']">
             <button class="btn btn-dark" [routerLink]="['/signin']">Zarejestruj się</button>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" *ngIf="accountService.currentUser$ | async" [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item mr-2 mb-1" [routerLinkActive]="['link-active']">
+            <button class="btn btn-outline-dark" (click)="logout()" [routerLink]="['/']">Logout</button>
           </li>
         </ul>
       </div>

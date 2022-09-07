@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -19,6 +18,9 @@ import { ExpeditionsComponent } from './expeditions/expeditions.component';
 import { RallysComponent } from './rallys/rallys.component';
 import { RacingComponent } from './racing/racing.component';
 import { HolidaysComponent } from './holidays/holidays.component';
+import { UserpanelComponent } from './userpanel/userpanel.component';
+import { CarviewComponent } from './carview/carview.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { HolidaysComponent } from './holidays/holidays.component';
     RallysComponent,
     RacingComponent,
     HolidaysComponent,
+    UserpanelComponent,
+    CarviewComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -56,9 +60,10 @@ import { HolidaysComponent } from './holidays/holidays.component';
       { path: 'expeditions', component: ExpeditionsComponent },
       { path: 'racing', component: RacingComponent },
       { path: 'holidays', component: HolidaysComponent },
+      { path: 'userpanel', component: UserpanelComponent },
     ])
   ],
-  providers: [],
+  providers: [AccountService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

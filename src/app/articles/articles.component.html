@@ -1,7 +1,7 @@
 <div *ngFor="let article of articles">
   <div [routerLink]="['/article', article.id]" class="row">
     <div class="col-md-4 image">
-      <img src="{{image}}{{article.id -1}}.jpg" class="rounded float-right d-block u-image img-fluid">
+      <img src={{article.imageUrl}} class="rounded float-right d-block u-image img-fluid">
     </div>
     <div class="col-md-8 content d-block">
       <h3>{{article.title}}</h3>

@@ -28,9 +28,8 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    var image = "/assets/offroad_zdjecia_test/1.jpg"
   }
 
-  image: string = "/assets/offroad_zdjecia_test/";
 }
 

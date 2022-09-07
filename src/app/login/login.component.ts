@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
+import { AccountService } from '../services/account.service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  model: any = {};
+  currentUser$: Observable<User> | undefined;
+
+  constructor(private accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
+    this.currentUser$ = this.accountService.currentUser$;
   }
 
+  login() {
+    console.log(this.model)
+    this.accountService.login(this.model).subscribe(response => {
+      console.log(response);
+      this.router.navigate(['/userpanel'])
+    }, error => {
+      console.log(error);
+    })
+  }
 }

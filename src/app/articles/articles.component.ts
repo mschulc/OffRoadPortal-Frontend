@@ -19,8 +19,6 @@ export class ArticlesComponent implements OnInit {
     }, error => console.error(error));
   }
 
-  image: string = "/assets/offroad_zdjecia_test/";
-
   ngOnInit(): void {
   }
 
