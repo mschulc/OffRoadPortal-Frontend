@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Article } from '../interfaces/article';
 import { ArticleService } from '../services/article.service';
 
@@ -11,7 +12,7 @@ import { ArticleService } from '../services/article.service';
 export class ArticlesComponent implements OnInit {
 
   public articles: Article[] = [];
-  baseURL: string = "https://localhost:7166/";
+  baseURL: string = environment.apiUrl;
 
   constructor(private articleService: ArticleService, http: HttpClient) {
     http.get<Article[]>(this.baseURL + 'article').subscribe(result => {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -9,13 +8,13 @@ import { AccountService } from '../services/account.service';
 })
 export class UserpanelComponent implements OnInit {
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService) {
+   }
 
   user = this.accountService.getCurrenUser();
-  token = this.user.token!;
+
 
   ngOnInit(): void {
-
   }
 
 

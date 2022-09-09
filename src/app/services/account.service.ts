@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, ReplaySubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, map, Observable, ReplaySubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../models/registerUser';
 import { User } from '../models/user';
 
@@ -8,21 +10,19 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = "https://localhost:7166/";
+  baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
-  public user: User = ({} as any) as User;
-  public registerUser: RegisterUser = ({} as any) as RegisterUser;
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(model: any){
     return this.http.post<User>(this.baseUrl + 'account/login', model).pipe(
       map((response: User) => {
         const user = response;
-        this.user = response;
+        console.log('User: ', user)
         if(user){
-          localStorage.setItem('user', JSON.stringify(user))
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     )
@@ -33,15 +33,46 @@ export class AccountService {
   }
 
   setCurrentUser(user: User){
+    localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
+    if(user != null){
+      this.currentUserSource.subscribe({
+        next: (data) => console.log(`ReplaySubject: ${data.id}`)
+      });
+    }
+
+    if(user){
+      this.currentUser$.subscribe({
+        next: (gugu) => console.log("Ten zjebany currentuser: ", gugu.id)
+      })
+    }
+
   }
   getCurrenUser(): User
   {
-      return this.user;
+      var user = localStorage.getItem('user');
+      return JSON.parse(user!);
   }
 
-  logout(){
+   logout(){
     localStorage.removeItem('user');
     this.currentUserSource.next(null!);
+    this.router.navigate(['']);
+    window.location.reload();
+    this.router.navigate(['']);
   }
+
+  getDecodedToken(token: string){
+    return JSON.parse(atob(token.split('.')[1]))
+  }
+
+  private _isLoggedIn = new BehaviorSubject<boolean>(false);
+
+    login_user(form: string) {
+       this._isLoggedIn.next(true) //or this._isLoggedIn.next(false) depending on the result
+    }
+
+    get isLoggedIn() {
+        return this._isLoggedIn.asObservable();
+    }
 }

@@ -36,3 +36,19 @@ html {
 .btn-light:hover, .btn-light:focus, .btn-light:active, .btn-light.active, .open>.dropdown-toggle.btn-light {
   font-weight: bold;
 }
+
+.btn-round {
+  background-color: #ffffff;
+  display:block;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.btn-round:hover, .btn-round:focus, .btn-round:active, .btn-round.active, .open>.dropdown-toggle.btn-round {
+  color: rgb(0, 0, 0);
+  background-color: #0f0f0f75;
+  border-color: #000000;
+  cursor: pointer;
+}

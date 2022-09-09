@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -23,6 +23,11 @@ import { CarviewComponent } from './carview/carview.component';
 import { AccountService } from './services/account.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { AdminGuard } from './guards/admin.guard';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     HolidaysComponent,
     UserpanelComponent,
     CarviewComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -50,13 +56,16 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    }),
     BsDatepickerModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'events', component: EventsComponent },
+      { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
       { path: 'articles', component: ArticlesComponent },
       { path: 'tutorials', component: TutorialsComponent },
-      { path: 'roads', component: RoadsComponent },
+      { path: 'roads', component: RoadsComponent, canActivate: [AuthGuard]},
       { path: 'login', component: LoginComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'article/:id', component: ArticleComponent },
@@ -64,10 +73,15 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
       { path: 'expeditions', component: ExpeditionsComponent },
       { path: 'racing', component: RacingComponent },
       { path: 'holidays', component: HolidaysComponent },
-      { path: 'userpanel', component: UserpanelComponent },
+      { path: 'userpanel', component: UserpanelComponent, canActivate: [AuthGuard]},
+      { path: '**', component: HomeComponent, pathMatch: 'full'},
+      { path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]},
     ])
   ],
-  providers: [AccountService ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
 import { User } from '../models/user';
 import { AccountService } from '../services/account.service';
 
@@ -23,10 +23,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.model)
+    console.log("Loguję model w login: ", this.model)
     this.accountService.login(this.model).subscribe(response => {
-      console.log(response);
-      this.router.navigate(['/userpanel'])
+      console.log("Loguje response w login: ",response);
+      this.router.navigate([''])
+      localStorage.setItem('loggedIn', 'false')
     }, error => {
       console.log(error);
       if(error.error == "Invalid username of password"){

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -8,8 +10,15 @@ import { AccountService } from '../services/account.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public accountService: AccountService) {  }
+  constructor(public accountService: AccountService, private router: Router) {  }
   isExpanded = false;
+  isLoggedIn = false;
+
+  user!: User;
+
+  currentUser = this.accountService.currentUser$.subscribe({
+    next: (data) => this.user = data
+  })
 
   collapse() {
     this.isExpanded = false;
@@ -23,6 +32,7 @@ export class NavBarComponent implements OnInit {
   }
 
   logout(){
-    this.accountService.logout()
+    this.accountService.logout();
+    this.router.navigate(['']);
   }
 }

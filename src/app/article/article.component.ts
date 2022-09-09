@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Article } from '../interfaces/article';
 import { ArticleService } from '../services/article.service';
 
@@ -11,7 +12,7 @@ import { ArticleService } from '../services/article.service';
 })
 export class ArticleComponent implements OnInit {
 
-  baseURL: string = "https://localhost:7166/";
+  baseURL: string = environment.apiUrl;
 
   public article: Article = ({} as any) as Article;
 
