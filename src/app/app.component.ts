@@ -1,3 +1,11 @@
+/////////////////////////////////////////////////////////////
+// Off-Road Portal AngularClient                           //
+// Bachelor's thesis software                              //
+// Author and software owner Maciej Schulc                 //
+// All rights reserved ®                                   //
+// File: app.component.ts                                  //
+/////////////////////////////////////////////////////////////
+
 import { Component, OnInit } from '@angular/core';
 import { User } from './models/user';
 import { AccountService } from './services/account.service';

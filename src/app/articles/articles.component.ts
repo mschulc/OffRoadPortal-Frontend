@@ -1,3 +1,11 @@
+/////////////////////////////////////////////////////////////
+// Off-Road Portal AngularClient                           //
+// Bachelor's thesis software                              //
+// Author and software owner Maciej Schulc                 //
+// All rights reserved ®                                   //
+// File: articles.component.ts                             //
+/////////////////////////////////////////////////////////////
+
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';

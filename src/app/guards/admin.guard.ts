@@ -1,3 +1,11 @@
+/////////////////////////////////////////////////////////////
+// Off-Road Portal AngularClient                           //
+// Bachelor's thesis software                              //
+// Author and software owner Maciej Schulc                 //
+// All rights reserved ®                                   //
+// File: admin.guard.ts                                    //
+/////////////////////////////////////////////////////////////
+
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

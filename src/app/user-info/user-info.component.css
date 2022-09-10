@@ -1,0 +1,38 @@
+.field
+{
+  height: 60px;
+  width: 350px;
+  border-radius: 20px;
+  border-color: rgba(0, 0, 0, 0.63);
+  border-style: groove;
+  margin-top: 50px;
+  position: relative;
+  margin-left: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: larger;
+  font-weight: 500;
+}
+.tittle{
+  height: 10px;
+  margin-left: 80px;
+  font-size: smaller;
+  top:-20px;
+  position: absolute
+}
+.center {
+  text-align: center;
+  position: absolute;
+  bottom: 25%;
+  left: 10%;
+}
+.info{
+  position: relative;
+}
+.data{
+  position: absolute;
+  top: 25%;
+  text-align: center;
+  font-size: medium;
+  font-weight: 500;
+}

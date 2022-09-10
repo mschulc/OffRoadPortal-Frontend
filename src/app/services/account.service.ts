@@ -1,7 +1,15 @@
+/////////////////////////////////////////////////////////////
+// Off-Road Portal AngularClient                           //
+// Bachelor's thesis software                              //
+// Author and software owner Maciej Schulc                 //
+// All rights reserved ®                                   //
+// File: account.service.ts                                //
+/////////////////////////////////////////////////////////////
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable, ReplaySubject } from 'rxjs';
+import { map, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../models/registerUser';
 import { User } from '../models/user';

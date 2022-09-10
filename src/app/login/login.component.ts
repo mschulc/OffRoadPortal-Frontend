@@ -1,3 +1,12 @@
+/////////////////////////////////////////////////////////////
+// Off-Road Portal AngularClient                           //
+// Bachelor's thesis software                              //
+// Author and software owner Maciej Schulc                 //
+// All rights reserved ®                                   //
+// File: login.component.ts                                //
+/////////////////////////////////////////////////////////////
+
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable} from 'rxjs';

@@ -1,3 +1,11 @@
+/////////////////////////////////////////////////////////////
+// Off-Road Portal AngularClient                           //
+// Bachelor's thesis software                              //
+// Author and software owner Maciej Schulc                 //
+// All rights reserved ®                                   //
+// File: app.module.ts                                     //
+/////////////////////////////////////////////////////////////
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -32,7 +40,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CarsComponent } from './cars/cars.component';
-import { UpdtateProfileImageComponent } from './updtate-profile-image/updtate-profile-image.component';
+import { UpdateProfileImageComponent } from './update-profile-image/update-profile-image.component';
 import { UserEventsComponent } from './user-events/user-events.component';
 import { UserArticlesComponent } from './user-articles/user-articles.component';
 
@@ -58,7 +66,7 @@ import { UserArticlesComponent } from './user-articles/user-articles.component';
     UserInfoComponent,
     EditProfileComponent,
     CarsComponent,
-    UpdtateProfileImageComponent,
+    UpdateProfileImageComponent,
     UserEventsComponent,
     UserArticlesComponent,
   ],

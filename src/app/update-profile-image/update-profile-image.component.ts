@@ -3,17 +3,17 @@
 // Bachelor's thesis software                              //
 // Author and software owner Maciej Schulc                 //
 // All rights reserved ®                                   //
-// File: user-events.component.ts                          //
+// File: update-profile-image.component.ts                 //
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-events',
-  templateUrl: './user-events.component.html',
-  styleUrls: ['./user-events.component.css']
+  selector: 'app-update-profile-image',
+  templateUrl: './update-profile-image.component.html',
+  styleUrls: ['./update-profile-image.component.css']
 })
-export class UserEventsComponent implements OnInit {
+export class UpdateProfileImageComponent implements OnInit {
 
   constructor() { }
 

@@ -1,14 +1,18 @@
 .sidepanel
 {
-  height: auto;
+  min-height: 750px;
+  border-right: rgba(0, 0, 0, 0.397);
+  border-style: groove;
+  border-left: white;
+  border-top: white;
+  border-bottom: white;
 }
 .center {
   display: table;
   margin: auto;
 }
 .content{
-  background-color: green;
-  height: 750px;
+  height: auto;
 }
 .profileimage{
   width: 200px;
@@ -26,17 +30,6 @@
 .btn{
   margin-top: 5px;
   width: 150px;
-}
-
-.field
-{
-  height: 60px;
-  width: 240px;
-  border-radius: 20px;
-  border-color: black;
-  border-style: groove;
-  margin-top: 10px;
-  position: relative;
 }
 
 .data{
