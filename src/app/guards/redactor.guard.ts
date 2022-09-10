@@ -13,12 +13,12 @@ export class AdminGuard implements CanActivate {
 
   canActivate(): boolean {
 
-    if(this.user.role == 4)
+    if(this.user.role == 3)
     {
       return true;
     }
     else{
-      this.toastr.error('Nie jesteś Adminem!')
+      this.toastr.error('Nie jesteś Redaktorem!')
       return false;
     }
   }

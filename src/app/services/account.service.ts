@@ -5,6 +5,9 @@ import { BehaviorSubject, map, Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../models/registerUser';
 import { User } from '../models/user';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Member } from '../models/member';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +16,11 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
+  helper = new JwtHelperService();
+  public member = this.decodeTokenToMember();
 
-  constructor(private http: HttpClient, private router: Router) { }
+
+  constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) { }
 
   login(model: any){
     return this.http.post<User>(this.baseUrl + 'account/login', model).pipe(
@@ -61,18 +67,29 @@ export class AccountService {
     window.location.reload();
     this.router.navigate(['']);
   }
+    private decodeTokenToMember()
+    {
+      var user = this.getCurrenUser();
 
-  getDecodedToken(token: string){
-    return JSON.parse(atob(token.split('.')[1]))
-  }
-
-  private _isLoggedIn = new BehaviorSubject<boolean>(false);
-
-    login_user(form: string) {
-       this._isLoggedIn.next(true) //or this._isLoggedIn.next(false) depending on the result
-    }
-
-    get isLoggedIn() {
-        return this._isLoggedIn.asObservable();
+      if(user)
+      {
+        var token = this.helper.decodeToken(user.token);
+        var member: Member = {
+          Id: token.Id,
+          Name: token.Name,
+          Role: token.Role,
+          BirthDate: token.BirthDate,
+          ProfileImageUrl: token.ProfileImageUrl,
+          PhoneNumber: token.PhoneNumber,
+          City: token.City,
+          Email: token.Email,
+          Cars: token.Cars
+        }
+         return member;
+      }
+      else
+      {
+        return null;
+      }
     }
 }

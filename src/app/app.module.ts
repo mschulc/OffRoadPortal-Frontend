@@ -28,6 +28,13 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { AdminGuard } from './guards/admin.guard';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './guards/auth.guard';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { CarsComponent } from './cars/cars.component';
+import { UpdtateProfileImageComponent } from './updtate-profile-image/updtate-profile-image.component';
+import { UserEventsComponent } from './user-events/user-events.component';
+import { UserArticlesComponent } from './user-articles/user-articles.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +55,12 @@ import { AuthGuard } from './guards/auth.guard';
     UserpanelComponent,
     CarviewComponent,
     AdminPanelComponent,
+    UserInfoComponent,
+    EditProfileComponent,
+    CarsComponent,
+    UpdtateProfileImageComponent,
+    UserEventsComponent,
+    UserArticlesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -79,7 +92,9 @@ import { AuthGuard } from './guards/auth.guard';
     ])
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
     AccountService
   ],
   bootstrap: [AppComponent]

@@ -1,2 +1,27 @@
-<p>userpanel works!</p>
-{{user.token}}
+<div class="row">
+  <div class="sidepanel col-md-3">
+    <div class="profileimage center">
+      <img src="{{member?.ProfileImageUrl}}" class="mx-auto rounded float-right d-block u-image img-fluid">
+    </div>
+    <div class="info">
+        <div class="data">{{member?.Name}}</div>
+    </div>
+    <div>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(1)">Informacje</button>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(2)">Edytuj profil</button>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(3)">Dodaj zdjęcie</button>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(4)">Moje samochody</button>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(5)">Moje Wydarzenia</button>
+    <button class="btn btn-outline-dark center" *ngIf="user.role == 4 || user.role == 3"(click)="swichNumber(6)">Moje artykuły</button>
+    <button class="btn btn-outline-dark center" *ngIf="user.role == 4" [routerLink]="['/admin']">Admin panel</button>
+    </div>
+  </div>
+  <div class="content col-md-9">
+    <app-user-info *ngIf="swich == 1"></app-user-info>
+    <app-edit-profile *ngIf="swich == 2"></app-edit-profile>
+    <app-updtate-profile-image *ngIf="swich == 3"></app-updtate-profile-image>
+    <app-cars *ngIf="swich == 4"></app-cars>
+    <app-user-events *ngIf="swich == 5"></app-user-events>
+    <app-user-articles *ngIf="swich == 6"></app-user-articles>
+  </div>
+</div>

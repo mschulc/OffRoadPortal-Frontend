@@ -1,0 +1,56 @@
+.sidepanel
+{
+  height: auto;
+}
+.center {
+  display: table;
+  margin: auto;
+}
+.content{
+  background-color: green;
+  height: 750px;
+}
+.profileimage{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+.info{
+  width: 300px;
+  height: auto;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.btn{
+  margin-top: 5px;
+  width: 150px;
+}
+
+.field
+{
+  height: 60px;
+  width: 240px;
+  border-radius: 20px;
+  border-color: black;
+  border-style: groove;
+  margin-top: 10px;
+  position: relative;
+}
+
+.data{
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.bottomleft{
+  position: absolute;
+  bottom: 1px;
+  left: 20px;
+  font-size: x-small;
+}
