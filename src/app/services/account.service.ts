@@ -15,6 +15,7 @@ import { RegisterUser } from '../models/registerUser';
 import { User } from '../models/user';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Member } from '../models/member';
+import { EditUser } from '../models/editUser';
 
 
 @Injectable({
@@ -26,7 +27,6 @@ export class AccountService {
   currentUser$ = this.currentUserSource.asObservable();
   helper = new JwtHelperService();
   public member = this.decodeTokenToMember();
-
 
   constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) { }
 
@@ -54,14 +54,8 @@ export class AccountService {
         next: (data) => console.log(`ReplaySubject: ${data.id}`)
       });
     }
-
-    if(user){
-      this.currentUser$.subscribe({
-        next: (gugu) => console.log("Ten zjebany currentuser: ", gugu.id)
-      })
-    }
-
   }
+
   getCurrenUser(): User
   {
       var user = localStorage.getItem('user');
@@ -84,7 +78,8 @@ export class AccountService {
         var token = this.helper.decodeToken(user.token);
         var member: Member = {
           Id: token.Id,
-          Name: token.Name,
+          FirstName: token.FirstName,
+          LastName: token.LastName,
           Role: token.Role,
           BirthDate: token.BirthDate,
           ProfileImageUrl: token.ProfileImageUrl,
@@ -100,4 +95,9 @@ export class AccountService {
         return null;
       }
     }
+
+    public update(model: any){
+      return this.http.patch<EditUser>(this.baseUrl + 'account/update', model);
+    }
+
 }

@@ -19,7 +19,14 @@
   height: 200px;
   margin-bottom: 20px;
   border-radius: 50%;
+  display:block;
 }
+.circleImg
+{
+  border-radius: 50%;
+  display:block;
+}
+
 .info{
   width: 300px;
   height: auto;
@@ -46,4 +53,7 @@
   bottom: 1px;
   left: 20px;
   font-size: x-small;
+}
+.portrait{
+  height: 100%;
 }

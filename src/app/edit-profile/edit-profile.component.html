@@ -1,1 +1,39 @@
-<p>edit-profile works!</p>
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
+    <form #editForm="ngForm" (ngSubmit)="update()" autocomplete="off" *ngIf="!updated">
+      <div class="main"></div>
+      <h1 class="h3 mb-3 fw-normal">Edytuj Dane</h1>
+
+      <div class="form-floating center">
+        <input type="text" name="FisrstName" class="form-control" id="floatingInput" placeholder="Imię" [(ngModel)]="model!.FirstName">
+        <label for="floatingInput">Imię</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="LastName" class="form-control" id="floatingInput" placeholder="Nazwisko" [(ngModel)]="model!.LastName">
+        <label for="floatingInput">Nazwisko</label>
+      </div>
+      <div class="form-floating center">
+        <input type="" name="BirthDate" class="form-control" id="floatingInput" placeholder="Data urodzenia" [(ngModel)]="model!.BirthDate" bsDatepicker [bsConfig]="{ isAnimated: true }" [bsConfig]="{containerClass:'theme-default'}">
+        <label for="floatingInput">Data urodzenia</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="City" class="form-control" id="floatingInput" placeholder="Miasto" [(ngModel)]="model!.City">
+        <label for="floatingInput">Miasto</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="PhoneNumber" class="form-control" id="floatingInput" placeholder="Telefon" [(ngModel)]="model!.PhoneNumber">
+        <label for="floatingInput">Telefon</label>
+      </div>
+      <div class="form-floating center">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
+        <label for="floatingPassword">Potwierdź zmiany hasłem</label>
+      </div>
+      <button class="btn btn-lg btn-dark" type="submit">Zapisz dane</button>
+      <div class="errorMessage">{{errorMessage}}</div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    </form>
+    <div class="infotext" *ngIf="updated">
+      <h6> Dane zaktualizowano poprawnie</h6>
+   </div>
+  </main>
+</body>

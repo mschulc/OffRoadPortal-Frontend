@@ -1,0 +1,15 @@
+.btn{
+  margin-top: 20px;
+}
+.main{
+  margin-top: 150px;
+  margin-left: 60px;
+}
+.form-control{
+  width: 500px;
+}
+.center {
+  display: table;
+  margin: auto;
+  margin-top: 20px;
+}

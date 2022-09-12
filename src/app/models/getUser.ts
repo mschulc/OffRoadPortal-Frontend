@@ -3,19 +3,11 @@
 // Bachelor's thesis software                              //
 // Author and software owner Maciej Schulc                 //
 // All rights reserved ®                                   //
-// File: member.ts                                         //
+// File: GetUser.ts                                        //
 /////////////////////////////////////////////////////////////
 
-export interface Member
+export interface GetUser
 {
-  Id: string;
-  FirstName: string;
-  LastName: string;
-  Role: string;
-  BirthDate: Date;
-  ProfileImageUrl: string;
-  PhoneNumber: string;
-  City: string;
-  Email: string;
-  Cars: string;
+  id: number;
+  password: string;
 }

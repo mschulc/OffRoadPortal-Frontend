@@ -44,7 +44,7 @@
             <div class="hello">Wiatj, {{user.firstName}}</div>
           </li>
           <li class="nav-item mr-2 mb-1" [routerLinkActive]="['link-active']">
-            <img class="btn-round"src="assets/profile/default.png" height="40" [routerLink]="['/userpanel']">
+            <img class="btn-round"src="{{profileImg}}" height="40" [routerLink]="['/userpanel']">
           </li>
           <li class="nav-item mr-2 mb-1" [routerLinkActive]="['link-active']">
             <button class="btn btn-outline-dark" (click)="logout()" [routerLink]="['/']">Logout</button>

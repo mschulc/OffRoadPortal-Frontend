@@ -22,7 +22,9 @@ export class NavBarComponent implements OnInit {
   isExpanded = false;
   isLoggedIn = false;
 
+  member = this.accountService.member;
   user!: User;
+  profileImg = this.setProfileImage();
 
   currentUser = this.accountService.currentUser$.subscribe({
     next: (data) => this.user = data
@@ -43,4 +45,17 @@ export class NavBarComponent implements OnInit {
     this.accountService.logout();
     this.router.navigate(['']);
   }
+
+  private setProfileImage(): string
+  {
+      if(this.member)
+      {
+        return this.member.ProfileImageUrl;
+      }
+      else
+      {
+        return "assets/profile/default.png";
+      }
+  }
 }
+

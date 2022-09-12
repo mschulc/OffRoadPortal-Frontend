@@ -1,15 +1,15 @@
 <div class="row">
   <div class="sidepanel col-md-3">
-    <div class="profileimage center">
-      <img src="{{member?.ProfileImageUrl}}" class="mx-auto rounded float-right d-block u-image img-fluid">
+    <div class=" profileimage center">
+      <img src="{{member?.ProfileImageUrl}}" class="portrait mx-auto rounded float-right d-block u-image img-fluid circleImg">
     </div>
     <div class="info">
-        <div class="data">{{member?.Name}}</div>
+        <div class="data">{{member?.FirstName}} {{member?.LastName}}</div>
     </div>
     <div>
     <button class="btn btn-outline-dark center" (click)="swichNumber(1)">Informacje</button>
-    <button class="btn btn-outline-dark center" (click)="swichNumber(2)">Edytuj profil</button>
-    <button class="btn btn-outline-dark center" (click)="swichNumber(3)">Dodaj zdjęcie</button>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(2)">Edytuj dane</button>
+    <button class="btn btn-outline-dark center" (click)="swichNumber(3)">Zmień zdjęcie</button>
     <button class="btn btn-outline-dark center" (click)="swichNumber(4)">Moje samochody</button>
     <button class="btn btn-outline-dark center" (click)="swichNumber(5)">Moje Wydarzenia</button>
     <button class="btn btn-outline-dark center" *ngIf="user.role == 4 || user.role == 3"(click)="swichNumber(6)">Moje artykuły</button>

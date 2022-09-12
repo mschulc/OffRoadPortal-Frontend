@@ -3,19 +3,16 @@
 // Bachelor's thesis software                              //
 // Author and software owner Maciej Schulc                 //
 // All rights reserved ®                                   //
-// File: member.ts                                         //
+// File: EditUser.ts                                       //
 /////////////////////////////////////////////////////////////
 
-export interface Member
+export interface EditUser
 {
-  Id: string;
-  FirstName: string;
-  LastName: string;
-  Role: string;
-  BirthDate: Date;
-  ProfileImageUrl: string;
-  PhoneNumber: string;
-  City: string;
-  Email: string;
-  Cars: string;
+  id: number;
+  firstName: string | undefined;
+  lastName: string | undefined;
+  birthDate: Date;
+  phoneNumber: string | undefined;
+  city: string | undefined;
+  passwordHash: string | undefined;
 }

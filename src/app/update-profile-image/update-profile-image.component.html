@@ -1,1 +1,17 @@
-<p>update-profile-image works!</p>
+<div class="main col-md-10" *ngIf="!loading">
+<div class="text-center center">
+  <input class="form-control" type="file"
+          (change)="onChange($event)">
+
+  <button (click)="onUpload()"
+      class="btn btn-dark center">
+      Upload
+  </button>
+</div>
+</div>
+
+
+<div class="main col-md-10" *ngIf="loading">
+  <div class="text-center center"><h3>Plik załadowano pomyślnie<br>Zdjęcie zostanie odświeżone po ponownym zalogowaniu</h3></div>
+</div>
+
