@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-user-events',
@@ -15,9 +16,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEventsComponent implements OnInit {
 
-  constructor() { }
+  swich: number = 1
+
+  constructor(private accountService: AccountService) {
+  }
+  user = this.accountService.getCurrenUser();
 
   ngOnInit(): void {
   }
 
+  public swichNumber(value: number){
+    this.swich = value;
+  }
 }

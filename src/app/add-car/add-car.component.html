@@ -1,0 +1,50 @@
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
+    <form #registerForm="ngForm" (ngSubmit)="addCar()" autocomplete="off" *ngIf="!isCarAdded">
+      <div class="title "></div>
+      <h1 class="h3 mb-3 fw-normal">Dodaj samochód</h1>
+
+      <div class="form-floating center">
+        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Nazwa" [(ngModel)]="model.name">
+        <label for="floatingInput">Nazwa</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="mark" class="form-control" id="floatingInput" placeholder="Marka" [(ngModel)]="model.mark">
+        <label for="floatingInput">Marka</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="model" class="form-control" id="floatingInput" placeholder="Model" [(ngModel)]="model.model">
+        <label for="floatingInput">Model</label>
+      </div>
+      <div class="form-floating center">
+        <input type="number" name="engine" class="form-control" id="floatingInput" placeholder="Pojemność silnika" [(ngModel)]="model.engine">
+        <label for="floatingInput">Pojemność silnika</label>
+      </div>
+      <div class="form-floating center">
+        <select type="select" name="fuel" class="form-control" id="floatingInput" placeholder="Typ paliwa" [(ngModel)]="model.fuel">
+          <option value=0>Disel</option>
+          <option value=1>Benzyna</option>
+          <option value=2>Benzyna+LPG</option>
+          <option value=3>Hybryda</option>
+          <option value=4>Elektryczny</option>
+        </select>
+        <label for="floatingInput">Typ paliwa</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="description" class="form-control" id="floatingInput" placeholder="Opis" [(ngModel)]="model.description">
+        <label for="floatingInput">Opis</label>
+      </div>
+      <div class="fileImage text-center center">
+        <input class="form-control" type="file"
+                (change)="onChange($event)">
+      </div>
+      <div class="separator"></div>
+      <button class="btn btn-lg btn-dark center" type="submit">Dodaj auto</button>
+      <div class="errorMessage">{{errorMessage}}</div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    </form>
+    <div class="infotext" *ngIf="isCarAdded">
+       <h6> Samochód dodano pomyslnie.<br></h6>
+    </div>
+  </main>
+</body>

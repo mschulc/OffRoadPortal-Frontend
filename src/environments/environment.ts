@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:7166/'
+  apiUrl: 'https://localhost:7166/',
+  assetsUrl: 'D:/Kod/FrontEnd/OffroadPortal/OffRoadPortal/src/assets'
 };
 
 /*

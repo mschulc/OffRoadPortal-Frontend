@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class UploadFileService {
 
   baseApiUrl = environment.apiUrl;
-  path = "D:/Kod/FrontEnd/OffroadPortal/OffRoadPortal/src/assets"
+  path = environment.assetsUrl;
 
   constructor(private http:HttpClient) { }
 

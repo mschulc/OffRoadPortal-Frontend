@@ -1,1 +1,13 @@
-<p>cars works!</p>
+<div class="row buttonBar center col-md-9">
+  <div class="center">
+    <button class="btn btn-outline-dark " (click)="swichNumber(1)">Lista</button>
+    <button class="btn btn-outline-dark " (click)="swichNumber(2)">Dodaj</button>
+    <button class="btn btn-outline-dark " (click)="swichNumber(3)">Edytuj</button>
+    <button class="btn btn-outline-dark ">Usuń</button>
+</div>
+</div>
+<div class="contentCars">
+  <app-list-car *ngIf="swich == 1"></app-list-car>
+  <app-add-car *ngIf="swich == 2"></app-add-car>
+  <app-edit-car *ngIf="swich == 3"></app-edit-car>
+</div>

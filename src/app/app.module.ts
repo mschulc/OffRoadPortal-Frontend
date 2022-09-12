@@ -43,6 +43,12 @@ import { CarsComponent } from './cars/cars.component';
 import { UpdateProfileImageComponent } from './update-profile-image/update-profile-image.component';
 import { UserEventsComponent } from './user-events/user-events.component';
 import { UserArticlesComponent } from './user-articles/user-articles.component';
+import { EditCarComponent } from './edit-car/edit-car.component';
+import { AddCarComponent } from './add-car/add-car.component';
+import { ListCarComponent } from './list-car/list-car.component';
+import { ListUserEventsComponent } from './list-user-events/list-user-events.component';
+import { AddEventComponent } from './add-event/add-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +75,12 @@ import { UserArticlesComponent } from './user-articles/user-articles.component';
     UpdateProfileImageComponent,
     UserEventsComponent,
     UserArticlesComponent,
+    EditCarComponent,
+    AddCarComponent,
+    ListCarComponent,
+    ListUserEventsComponent,
+    AddEventComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

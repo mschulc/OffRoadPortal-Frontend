@@ -1,0 +1,45 @@
+.image
+{
+  height: 150px;
+  max-width: 210px;
+  margin-bottom: 5px;
+}
+.content{
+  height: 150px;
+  margin-bottom: 5px;
+}
+
+.row
+{
+  border: 1px;
+  border-style: outset;
+}
+
+.parent:hover [tabindex]
+{
+  transition:999s;
+  background-color: rgba(202, 202, 207, 0.658);
+}
+
+.parent [tabindex] {
+  transition:999s;
+  background: rgba(255,255,255,0);
+}
+.parent:focus-within [tabindex] {
+  transition:0s;
+  background: rgba(255,255,254,0); /* a little different coloration to make sure we trigger the transition */
+}
+.parent [tabindex]:focus,
+.parent [tabindex].active:focus{
+  background-color: rgba(128, 128, 128, 0.25);
+  transition:0s;
+}
+
+.parent .active{
+  background-color: rgba(128, 128, 127, 0.25); /* a little different coloration to make sure we trigger the transition */
+}
+
+.center {
+  display: table;
+  margin: auto;
+}

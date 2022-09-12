@@ -1,1 +1,13 @@
-<p>user-events works!</p>
+<div class="row buttonBar center col-md-9">
+  <div class="center">
+    <button class="btn btn-outline-dark" (click)="swichNumber(1)">Lista</button>
+    <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 3 || user.role == 2" (click)="swichNumber(2)">Dodaj</button>
+    <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 3 || user.role == 2" (click)="swichNumber(3)" (click)="swichNumber(3)">Edytuj</button>
+    <button class="btn btn-outline-dark">Wypisz się</button>
+</div>
+</div>
+<div class="contentCars">
+  <app-list-user-events *ngIf="swich == 1"></app-list-user-events>
+  <app-add-event *ngIf="swich == 2"></app-add-event>
+  <app-edit-event *ngIf="swich == 3"></app-edit-event>
+</div>

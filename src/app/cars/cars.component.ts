@@ -15,9 +15,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsComponent implements OnInit {
 
+  swich: number = 1
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  public swichNumber(value: number){
+    this.swich = value;
+  }
 }
