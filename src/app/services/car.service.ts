@@ -10,18 +10,42 @@ import { Car } from '../models/car';
 export class CarService {
 
   constructor(private http: HttpClient) { }
-
+  carId: number = 0;
   baseUrl = environment.apiUrl;
 
   getCars(url: string):Observable<Car[]>{
      return this.http.get<Car[]>(this.baseUrl + url)
   }
 
-  addCar(model: any, url: string){
+  getCarById(url: string): Observable<Car>{
+    return this.http.get<Car>(this.baseUrl + url);
+  }
+
+  addCar(model: any, url: string) :Observable<any>{
     return this.http.post<Car>(this.baseUrl + url, model);
   }
 
   editCar(model: any, url: string){
     return this.http.patch<Car>(this.baseUrl + url, model);
+  }
+
+  public setCarId(carId: number){
+    this.carId = carId;
+    console.log(this.carId)
+  }
+
+  public getCarId(): number{
+    return this.carId;
+  }
+
+  deleteCar(url: string){
+    this.http.delete(this.baseUrl + url).subscribe(
+      Response =>
+      {
+        console.log(Response);
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 }

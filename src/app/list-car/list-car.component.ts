@@ -12,11 +12,9 @@ export class ListCarComponent implements OnInit {
 
   member = this.accountService.member;
   cars: Car[] = [];
-  carId: number = 0;
 
-
-  constructor(carService: CarService, private accountService: AccountService) {
-
+  constructor(private carService: CarService, private accountService: AccountService) {
+      carService.setCarId(0);
       carService.getCars(`user/${this.member?.Id}/car`).subscribe(response =>
       {
         console.log(response)
@@ -28,6 +26,7 @@ export class ListCarComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
   public setFuelType(fuel: number){
@@ -35,8 +34,6 @@ export class ListCarComponent implements OnInit {
   }
 
   public setCarId(carId: number){
-    this.carId = carId;
-    console.log(this.carId)
+    this.carService.setCarId(carId);
   }
-
 }

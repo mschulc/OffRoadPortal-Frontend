@@ -9,13 +9,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, ReplaySubject } from 'rxjs';
+import { map, Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../models/registerUser';
 import { User } from '../models/user';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Member } from '../models/member';
 import { EditUser } from '../models/editUser';
+import { UpdateProfileImg } from '../models/updateProfileImg';
 
 
 @Injectable({
@@ -98,6 +99,10 @@ export class AccountService {
 
     public update(model: any){
       return this.http.patch<EditUser>(this.baseUrl + 'account/update', model);
+    }
+
+    public updateProfileImage(model :any): Observable<any> {
+      return this.http.patch<UpdateProfileImg>(this.baseUrl + 'account/profileImg', model);
     }
 
 }

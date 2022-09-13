@@ -7,6 +7,8 @@
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../services/account.service';
+import { CarService } from '../services/car.service';
 
 @Component({
   selector: 'app-cars',
@@ -16,14 +18,20 @@ import { Component, OnInit } from '@angular/core';
 export class CarsComponent implements OnInit {
 
   swich: number = 1
-  
-  constructor() { }
-
+  constructor(public carService: CarService, private accountService: AccountService) {
+    carService.setCarId(0);
+  }
+  member = this.accountService.member;
   ngOnInit(): void {
   }
 
-
   public swichNumber(value: number){
     this.swich = value;
+  }
+
+  public delete(){
+    var url = `user/${this.member?.Id}/car/${this.carService.getCarId()}`;
+    this.carService.deleteCar(url);
+    window.location.reload();
   }
 }

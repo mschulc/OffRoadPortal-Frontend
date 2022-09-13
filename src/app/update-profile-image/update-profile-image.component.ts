@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
+import { UpdateProfileImg } from '../models/updateProfileImg';
 import { AccountService } from '../services/account.service';
 import { UploadFileService } from '../services/upload-file.service';
 
@@ -23,6 +24,7 @@ export class UpdateProfileImageComponent implements OnInit {
     file: File | undefined;
     member = this.accountService.member;
 
+
     constructor(private uploadFileService: UploadFileService, private accountService: AccountService) { }
 
     ngOnInit(): void {
@@ -32,9 +34,18 @@ export class UpdateProfileImageComponent implements OnInit {
         this.file = event.target.files[0];
     }
 
-
     onUpload() {
-        this.uploadFileService.upload(this.file, "/profile", this.member?.Id).subscribe(
+        var updateImg: UpdateProfileImg = {
+        id: +this.member?.Id!,
+        profileImageUrl: 'assets/profile/' + this.file?.name
+      }
+        this.accountService.updateProfileImage(updateImg).subscribe(
+          r => {console.log(r);
+          }, e => {
+            console.log(e);
+          }
+        );
+        this.uploadFileService.upload(this.file, "/profile").subscribe(
             response => {
               this.response = response;
               if(response != null)

@@ -3,9 +3,11 @@
   height: 150px;
   max-width: 210px;
   margin-bottom: 5px;
+  object-fit: cover;
+  margin-right: 20px;
 }
 .content{
-  height: 150px;
+  height: 170px;
   margin-bottom: 5px;
 }
 

@@ -1,11 +1,11 @@
 <body class="text-center">
   <main class="form-signin w-100 m-auto">
-    <form #registerForm="ngForm" (ngSubmit)="addCar()" autocomplete="off" *ngIf="!isCarUpdated">
+    <form #registerForm="ngForm" (ngSubmit)="editCar()" autocomplete="off" *ngIf="!isCarUpdated">
       <div class="title "></div>
       <h1 class="h3 mb-3 fw-normal">Edytuj samochód</h1>
 
       <div class="form-floating center">
-        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Nazwa" [(ngModel)]="model.name">
+        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Nazwa" [(ngModel)]="model!.name">
         <label for="floatingInput">Nazwa</label>
       </div>
       <div class="form-floating center">
@@ -15,6 +15,10 @@
       <div class="form-floating center">
         <input type="text" name="model" class="form-control" id="floatingInput" placeholder="Model" [(ngModel)]="model.model">
         <label for="floatingInput">Model</label>
+      </div>
+      <div class="form-floating center">
+        <input type="text" name="year" class="form-control" id="floatingInput" placeholder="Rok produkcji" [(ngModel)]="model.year">
+        <label for="floatingInput">Rok produkcji</label>
       </div>
       <div class="form-floating center">
         <input type="number" name="engine" class="form-control" id="floatingInput" placeholder="Pojemność silnika" [(ngModel)]="model.engine">
@@ -39,7 +43,7 @@
                 (change)="onChange($event)">
       </div>
       <div class="separator"></div>
-      <button class="btn btn-lg btn-dark center" type="submit">Dodaj auto</button>
+      <button class="btn btn-lg btn-dark center" type="submit">Aktualizuj dane</button>
       <div class="errorMessage">{{errorMessage}}</div>
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
     </form>

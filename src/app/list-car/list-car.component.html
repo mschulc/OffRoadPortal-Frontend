@@ -2,7 +2,7 @@
 <div *ngFor="let car of cars" tabindex="'{{car.id}}'">
   <div class="row" (click)="setCarId(car.id)">
     <div class="col-md-4 image">
-      <img src={{car?.imageUrl}} class="rounded float-right d-block u-image img-fluid">
+      <img src={{car?.imageUrl}} class="rounded float-right d-block image img-fluid">
     </div>
     <div class="col-md-3 content d-block">
       <h3>{{car.name}}</h3>
@@ -11,6 +11,7 @@
         <h6>Model: {{car.model}}</h6>
         <h6>Silnik: {{car.engine}}</h6>
         <h6>Paliwo: {{setFuelType(car.fuel)}}</h6>
+        <h6>Rocznik: {{(car.year)}}</h6>
       </div>
     </div>
     <div class="col-md-6 description d-block">

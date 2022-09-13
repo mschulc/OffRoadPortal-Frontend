@@ -14,7 +14,7 @@ export class UploadFileService {
   constructor(private http:HttpClient) { }
 
   // Returns an observable
-  upload(file: any, detailPath: string, userId: any):Observable<any> {
+  upload(file: any, detailPath: string):Observable<any> {
 
       // Create form data
       const formData = new FormData();
@@ -22,7 +22,6 @@ export class UploadFileService {
       // Store form name as "file" with file data
       formData.append("file", file);
       formData.append("rootpath", this.path + detailPath);
-      formData.append("userId", userId);
 
       // Make http post request over api
       // with formData as req

@@ -1,9 +1,11 @@
 <div class="row buttonBar center col-md-9">
   <div class="center">
-    <button class="btn btn-outline-dark " (click)="swichNumber(1)">Lista</button>
-    <button class="btn btn-outline-dark " (click)="swichNumber(2)">Dodaj</button>
-    <button class="btn btn-outline-dark " (click)="swichNumber(3)">Edytuj</button>
-    <button class="btn btn-outline-dark ">Usuń</button>
+    <button class="btn btn-outline-dark" (click)="swichNumber(1)">Lista</button>
+    <button  class="btn btn-outline-dark" (click)="swichNumber(2)">Dodaj</button>
+    <button *ngIf="(carService.carId == 0)" disabled="disabled" class="btn btn-outline-dark" (click)="swichNumber(3)">Edytuj</button>
+    <button *ngIf="(carService.carId != 0)" class="btn btn-outline-dark" (click)="swichNumber(3)">Edytuj</button>
+    <button *ngIf="(carService.carId == 0)" disabled="disabled" class="btn btn-outline-dark">Usuń</button>
+    <button *ngIf="(carService.carId != 0)" (click)="delete()" class="btn btn-outline-dark">Usuń</button>
 </div>
 </div>
 <div class="contentCars">
