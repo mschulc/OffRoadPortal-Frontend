@@ -6,8 +6,7 @@
 // File: articles.component.ts                             //
 /////////////////////////////////////////////////////////////
 
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Article } from '../interfaces/article';
 import { ArticleService } from '../services/article.service';
@@ -19,11 +18,11 @@ import { ArticleService } from '../services/article.service';
 })
 export class ArticlesComponent implements OnInit {
 
-  public articles: Article[] = [];
+  articles: Article[] = [];
   baseURL: string = environment.apiUrl;
 
-  constructor(private articleService: ArticleService, http: HttpClient) {
-    http.get<Article[]>(this.baseURL + 'article').subscribe(result => {
+  constructor(private articleService: ArticleService) {
+    this.articleService.getArticles('article').subscribe(result => {
       this.articles = result;
     }, error => console.error(error));
   }

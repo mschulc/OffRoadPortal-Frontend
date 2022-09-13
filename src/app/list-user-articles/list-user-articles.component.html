@@ -1,0 +1,13 @@
+<div class="parent" tabindex="0">
+  <div *ngFor="let article of articles" tabindex="'{{article.id}}'">
+    <div class="row" (click)="setArticleId(article.id)">
+      <div class="col-md-4 image">
+        <img src={{article.imageUrl}} class="rounded float-right d-block u-image img-fluid">
+      </div>
+      <div class="col-md-8 content d-block">
+        <h3>{{article.title}}</h3>
+        <a>{{ShortDisplayText(article.content)}}</a>
+      </div>
+    </div>
+  </div>
+  </div>

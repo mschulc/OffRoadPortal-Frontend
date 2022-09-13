@@ -49,6 +49,9 @@ import { ListCarComponent } from './list-car/list-car.component';
 import { ListUserEventsComponent } from './list-user-events/list-user-events.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
+import { AddArticleComponent } from './add-article/add-article.component';
+import { ListUserArticlesComponent } from './list-user-articles/list-user-articles.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +84,9 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     ListUserEventsComponent,
     AddEventComponent,
     EditEventComponent,
+    EditArticleComponent,
+    AddArticleComponent,
+    ListUserArticlesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

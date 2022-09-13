@@ -7,6 +7,8 @@
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../services/account.service';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-user-articles',
@@ -15,9 +17,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserArticlesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService: AccountService, public articleService: ArticleService) {
+  }
+  user = this.accountService.getCurrenUser();
+  member = this.accountService.member;
+  swich: number = 1
 
   ngOnInit(): void {
+  }
+
+  public swichNumber(value: number){
+    this.swich = value;
+  }
+
+  public delete(){
+    var url = `user/${this.member?.Id}/car/${this.articleService.getArticleId()}`;
+    this.articleService.deleteArticle(url);
+    window.location.reload();
   }
 
 }

@@ -6,7 +6,6 @@
 // File: article.component.ts                              //
 /////////////////////////////////////////////////////////////
 
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -23,22 +22,20 @@ export class ArticleComponent implements OnInit {
   baseURL: string = environment.apiUrl;
 
   public article: Article = ({} as any) as Article;
+  id: string | null = "";
 
+  constructor(private _ActivatedRoute:ActivatedRoute, private articleService: ArticleService){
 
-  constructor(private _Activatedroute:ActivatedRoute, private articleService: ArticleService, http: HttpClient){
-      var id;
-      this._Activatedroute.paramMap.subscribe(params => {
-        id = params.get('id');
+      this._ActivatedRoute.paramMap.subscribe(params => {
+        this.id = params.get('id');
       });
 
-      http.get<Article>(this.baseURL + 'article/'+ id).subscribe(result => {
+      this.articleService.getArticleById('article/', this.id!).subscribe(result => {
         this.article = result;
       }, error => console.error(error));
   }
 
   ngOnInit(): void {
-    var image = "/assets/offroad_zdjecia_test/1.jpg"
   }
-
 }
 

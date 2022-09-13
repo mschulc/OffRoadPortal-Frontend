@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
+import { setDate } from 'ngx-bootstrap/chronos/utils/date-setters';
 import { EditUser } from '../models/editUser';
 import { GetUser } from '../models/getUser';
 import { RegisterUser } from '../models/registerUser';
@@ -20,7 +21,8 @@ import { AccountService } from '../services/account.service';
 export class EditProfileComponent implements OnInit {
 
   updated: boolean = false;
-  model = this.accountService.member;
+  member = this.accountService.member;
+  model: any = this.member;
   user = this.accountService.getCurrenUser();
 
   errorMessage: string = "";
@@ -30,6 +32,12 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.member?.BirthDate)
+    console.log(typeof(this.member?.BirthDate))
+  }
+
+  public setDate(birthDate: string) : Date{
+    return new Date(this.model?.BirthDate!)
   }
 
   update(){
