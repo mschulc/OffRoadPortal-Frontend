@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../services/account.service';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-add-event',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEventComponent implements OnInit {
 
-  constructor() { }
+  member = this.accountService.member;
+  isEventAdded: boolean = false;
+  errorMessage: string = "";
+  model: any = {};
+  file: File | undefined;
 
-  ngOnInit(): void {
+  constructor(private eventService: EventService, private accountService: AccountService) {}
+
+   ngOnInit(): void {
   }
 
+  addEvent(){
+    this.model.authorId = parseInt(this.member?.Id!)
+    this.model.createdDate = new Date();
+    var url = `article`;
+    this.eventService.addEvent(this.model, url).subscribe(
+      res => {
+        this.isEventAdded = true;
+        console.log(res);
+      }, err => {
+        console.log(err);
+        this.isEventAdded = false;
+      }
+    )
+    console.log(this.model)
+    console.log(this.file)
+  }
 }

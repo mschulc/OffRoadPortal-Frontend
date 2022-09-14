@@ -8,7 +8,7 @@
     <button *ngIf="(articleService.getArticleId() > 0)" (click)="delete()" class="btn btn-outline-dark">Usuń</button>
 </div>
 </div>
-<div class="contentCars">
+<div class="contentArticles">
   <app-list-user-articles *ngIf="swich == 1"></app-list-user-articles>
   <app-add-article *ngIf="swich == 2"></app-add-article>
   <app-edit-article *ngIf="swich == 3"></app-edit-article>

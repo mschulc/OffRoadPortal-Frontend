@@ -8,7 +8,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Article } from '../interfaces/article';
+import { Article } from '../models/article';
 import { ArticleService } from '../services/article.service';
 
 @Component({

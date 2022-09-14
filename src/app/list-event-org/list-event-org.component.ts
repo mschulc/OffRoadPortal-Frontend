@@ -4,11 +4,11 @@ import { AccountService } from '../services/account.service';
 import { EventService } from '../services/event.service';
 
 @Component({
-  selector: 'app-list-user-events',
-  templateUrl: './list-user-events.component.html',
-  styleUrls: ['./list-user-events.component.css']
+  selector: 'app-list-event-org',
+  templateUrl: './list-event-org.component.html',
+  styleUrls: ['./list-event-org.component.css']
 })
-export class ListUserEventsComponent implements OnInit {
+export class ListEventOrgComponent implements OnInit {
 
   member = this.accountService.member;
   constructor(private eventService: EventService, private accountService: AccountService) {

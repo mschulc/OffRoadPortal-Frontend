@@ -3,30 +3,17 @@
 // Bachelor's thesis software                              //
 // Author and software owner Maciej Schulc                 //
 // All rights reserved ®                                   //
-// File: car.ts                                            //
+// File: article.ts                                            //
 /////////////////////////////////////////////////////////////
 
-export interface Car{
-   id: number
-   name: string
-   mark: string
-   model: string;
-   year: number;
-   engine: number;
-   fuel: FuelType;
-   description: string;
-   imageUrl: string
-   userId: number;
+export interface Article {
+  id: number;
+  title: string;
+  content: string;
+  authorId: number;
+  author: string;
+  createdDate: string;
+  modifiedDate: string;
+  imageUrl: string;
+  comments: Array<any>;
 }
-export enum FuelType
-{
-    Disel,
-    Gas,
-    LPG,
-    Hybrid,
-    Electric
-}
-
-
-
-

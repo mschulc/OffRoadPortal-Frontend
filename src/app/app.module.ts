@@ -52,6 +52,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { ListUserArticlesComponent } from './list-user-articles/list-user-articles.component';
+import { ListEventOrgComponent } from './list-event-org/list-event-org.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { ListUserArticlesComponent } from './list-user-articles/list-user-articl
     EditArticleComponent,
     AddArticleComponent,
     ListUserArticlesComponent,
+    ListEventOrgComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -1,1 +1,51 @@
-<p>edit-event works!</p>
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
+    <form #registerForm="ngForm" (ngSubmit)="editEvent()" autocomplete="off" *ngIf="!isEventAdded">
+      <div class="title "></div>
+      <h1 class="h3 mb-3 fw-normal">Edytuj wydarzenie</h1>
+
+      <div class="form-floating center">
+        <input type="text" name="eventName" class="form-control" id="floatingInput" placeholder="Nazwa wydarzenia" [(ngModel)]="model.eventName">
+        <label for="floatingInput">Nazwa wydarzenia</label>
+      </div>
+        <div class="form-floating center">
+          <select type="select" name="category" class="form-control" id="floatingInput" placeholder="Typ wydarzenia" [(ngModel)]="model.category">
+            <option value=0>Wyprawa</option>
+            <option value=1>Rajd</option>
+            <option value=2>Zjazd</option>
+            <option value=3>Wakacje</option>
+          </select>
+          <label for="floatingInput">Typ wydarzenia</label>
+        </div>
+        <div class="form-floating center">
+          <select type="select" name="type" class="form-control" id="floatingInput" placeholder="Typ pojazdu" [(ngModel)]="model.type">
+            <option value=0>Samochod</option>
+            <option value=1>Cieżarówka</option>
+            <option value=2>Motocykl</option>
+            <option value=3>Rower</option>
+            <option value=4>Wszytko</option>
+          </select>
+          <label for="floatingInput">Typ pojazdu</label>
+        </div>
+        <div class="form-floating center">
+          <input type="text" name="startEventDate" class="form-control" id="floatingInput" placeholder="Data startu" [(ngModel)]="model.startEventDate" bsDatepicker [bsConfig]="{ isAnimated: true }" [bsConfig]="{containerClass:'theme-default'}">
+          <label for="floatingInput">Data startu</label>
+        </div>
+        <div class="form-floating center">
+          <input type="text" name="endEventDate" class="form-control" id="floatingInput" placeholder="Data zakończenia" [(ngModel)]="model.endEventDate" bsDatepicker [bsConfig]="{ isAnimated: true }" [bsConfig]="{containerClass:'theme-default'}">
+          <label for="floatingInput">Data zakończenia</label>
+        </div>
+      <div class="form-floating center">
+        <textarea type="text" name="eventDescription" class="form-control content" id="floatingInput" placeholder="Opis" [(ngModel)]="model.eventDescription"></textarea>
+        <label for="floatingInput">Opis</label>
+      </div>
+      <div class="separator"></div>
+      <button class="btn btn-lg btn-dark center" type="submit">Edytuj</button>
+      <div class="errorMessage">{{errorMessage}}</div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    </form>
+    <div class="infotext" *ngIf="isEventAdded">
+       <h6> Wydarzenie dodano pomyslnie.<br></h6>
+    </div>
+  </main>
+</body>

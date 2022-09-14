@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../interfaces/article';
+import { Article } from '../models/article';
 import { AccountService } from '../services/account.service';
 import { ArticleService } from '../services/article.service';
 
@@ -21,7 +21,6 @@ export class ListUserArticlesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
   public setArticleId(articleId: number){
     this.articleService.setArticleId(articleId);

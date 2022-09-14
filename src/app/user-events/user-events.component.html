@@ -1,13 +1,22 @@
 <div class="row buttonBar center col-md-9">
   <div class="center">
-    <button class="btn btn-outline-dark" (click)="swichNumber(1)">Lista</button>
-    <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 3 || user.role == 2" (click)="swichNumber(2)">Dodaj</button>
-    <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 3 || user.role == 2" (click)="swichNumber(3)" (click)="swichNumber(3)">Edytuj</button>
-    <button class="btn btn-outline-dark">Wypisz się</button>
+    <button class="btn btn-outline-dark" (click)="swichNumber(1)">Zapisy</button>
+    <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 2" (click)="swichNumber(2)">Organizator</button>
+    <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 2" (click)="swichNumber(3)">Dodaj</button>
+
+    <button *ngIf="(eventService.getEventId() == 0 && (user.role == 4 || user.role == 2))" disabled="disabled" class="btn btn-outline-dark" (click)="swichNumber(4)">Edytuj</button>
+    <button *ngIf="(eventService.getEventId() > 0 && (user.role == 4 || user.role == 2))" class="btn btn-outline-dark" (click)="swichNumber(4)">Edytuj</button>
+
+    <button  *ngIf="(eventService.getEventId() == 0)" disabled="disabled" class="btn btn-outline-dark">Wypisz się</button>
+    <button  *ngIf="(eventService.getEventId() > 0)" class="btn btn-outline-dark">Wypisz się</button>
+
+    <button *ngIf="(eventService.getEventId() == 0 && (user.role == 4 || user.role == 2))" disabled="disabled" class="btn btn-outline-dark">Usuń</button>
+    <button *ngIf="(eventService.getEventId() > 0 && (user.role == 4 || user.role == 2))" class="btn btn-outline-dark" (click)="delete()">Usuń</button>
 </div>
 </div>
-<div class="contentCars">
+<div class="contentEvents">
   <app-list-user-events *ngIf="swich == 1"></app-list-user-events>
-  <app-add-event *ngIf="swich == 2"></app-add-event>
-  <app-edit-event *ngIf="swich == 3"></app-edit-event>
+  <app-list-event-org *ngIf="swich == 2"></app-list-event-org>
+  <app-add-event *ngIf="swich == 3"></app-add-event>
+  <app-edit-event *ngIf="swich == 4"></app-edit-event>
 </div>
