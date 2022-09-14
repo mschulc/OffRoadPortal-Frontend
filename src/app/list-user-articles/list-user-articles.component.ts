@@ -11,6 +11,7 @@ import { ArticleService } from '../services/article.service';
 export class ListUserArticlesComponent implements OnInit {
 
   constructor(private articleService: ArticleService, private accountService: AccountService) {
+    articleService.setArticleId(0);
     this.articleService.getArticlesByAuthorId('article/author/', accountService.member?.Id!).subscribe(result => {
       this.articles = result;
     }, error => console.error(error));

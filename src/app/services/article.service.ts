@@ -20,7 +20,7 @@ export class ArticleService{
   constructor(private http: HttpClient) { }
 
   baseUrl = environment.apiUrl;
-  articleId: number = 0;
+  public articleId: number = 0;
 
   getArticles(url: string):Observable<Article[]>{
     return this.http.get<Article[]>(this.baseUrl + url)
@@ -34,13 +34,12 @@ export class ArticleService{
     return this.http.get<Article[]>(this.baseUrl + url + id)
   }
 
-  public setArticleId(articleId: number){
-    this.articleId = articleId;
-    console.log(this.articleId)
+  addArticle(model: any, url: string): Observable<any>{
+      return this.http.post<Article>(this.baseUrl + url, model);
   }
 
-  public getArticleId(): number{
-    return this.articleId;
+  updateArticle(model: any, url: string): Observable<any>{
+      return this.http.patch<Article>(this.baseUrl + url, model);
   }
 
   deleteArticle(url: string){
@@ -52,5 +51,14 @@ export class ArticleService{
         console.log(error);
       }
     );
+  }
+
+  public setArticleId(articleId: number){
+    this.articleId = articleId;
+    console.log(this.articleId)
+  }
+
+  public getArticleId(): number{
+    return this.articleId;
   }
 }

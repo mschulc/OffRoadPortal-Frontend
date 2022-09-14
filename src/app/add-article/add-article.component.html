@@ -1,1 +1,29 @@
-<p>add-article works!</p>
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
+    <form #registerForm="ngForm" (ngSubmit)="addArticle()" autocomplete="off" *ngIf="!isArticleAdded">
+      <div class="title "></div>
+      <h1 class="h3 mb-3 fw-normal">Dodaj artykuł</h1>
+
+      <div class="form-floating center">
+        <input type="text" name="title" class="form-control" id="floatingInput" placeholder="Tytuł" [(ngModel)]="model.title">
+        <label for="floatingInput">Tytuł</label>
+      </div>
+      <div class="form-floating center">
+        <textarea type="text" name="content" class="form-control content" id="floatingInput" placeholder="Treść" [(ngModel)]="model.content"></textarea>
+        <label for="floatingInput">Treść</label>
+      </div>
+
+      <div class="fileImage text-center center">
+        <input class="form-control" type="file"
+                (change)="onChange($event)">
+      </div>
+      <div class="separator"></div>
+      <button class="btn btn-lg btn-dark center" type="submit">Dodaj artykuł</button>
+      <div class="errorMessage">{{errorMessage}}</div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    </form>
+    <div class="infotext" *ngIf="isArticleAdded">
+       <h6> Artykuł dodano pomyslnie.<br></h6>
+    </div>
+  </main>
+</body>

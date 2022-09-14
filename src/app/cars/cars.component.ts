@@ -26,6 +26,9 @@ export class CarsComponent implements OnInit {
   }
 
   public swichNumber(value: number){
+    if(value == 2){
+      this.carService.setCarId(0);
+    }
     this.swich = value;
   }
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from '../models/car';
 import { AccountService } from '../services/account.service';
 import { CarService } from '../services/car.service';
 import { UploadFileService } from '../services/upload-file.service';
@@ -60,6 +59,7 @@ onUpload() {
     if(this.file != null)
     {
       this.onUpload()
+      this.model.imageUrl = '/assets/carsImages/'+this.file?.name;
     }
     this.carService.editCar(this.model, this.url).subscribe(
       response => {

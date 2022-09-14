@@ -17,7 +17,8 @@ export class AddCarComponent implements OnInit {
   model: any = {};
   file: File | undefined;
 
-  constructor(private carService: CarService, private uploadFileService: UploadFileService, private accountService: AccountService) { }
+  constructor(private carService: CarService, private uploadFileService: UploadFileService,
+    private accountService: AccountService) { }
 
   ngOnInit(): void {
   }

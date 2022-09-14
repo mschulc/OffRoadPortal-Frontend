@@ -2,10 +2,10 @@
   <div class="center">
     <button class="btn btn-outline-dark" (click)="swichNumber(1)">Lista</button>
     <button class="btn btn-outline-dark" *ngIf="user.role == 4 || user.role == 3 || user.role == 2" (click)="swichNumber(2)">Dodaj</button>
-    <button *ngIf="(articleService.articleId == 0)" disabled="disabled" class="btn btn-outline-dark" (click)="swichNumber(3)">Edytuj</button>
-    <button *ngIf="(articleService.articleId != 0)" class="btn btn-outline-dark" (click)="swichNumber(3)">Edytuj</button>
-    <button *ngIf="(articleService.articleId == 0)" disabled="disabled" class="btn btn-outline-dark">Usuń</button>
-    <button *ngIf="(articleService.articleId != 0)" (click)="delete()" class="btn btn-outline-dark">Usuń</button>
+    <button *ngIf="(articleService.getArticleId() == 0)" disabled="disabled" class="btn btn-outline-dark" (click)="swichNumber(3)">Edytuj</button>
+    <button *ngIf="(articleService.getArticleId() > 0)" class="btn btn-outline-dark" (click)="swichNumber(3)">Edytuj</button>
+    <button *ngIf="(articleService.getArticleId() == 0 )" disabled="disabled" class="btn btn-outline-dark">Usuń</button>
+    <button *ngIf="(articleService.getArticleId() > 0)" (click)="delete()" class="btn btn-outline-dark">Usuń</button>
 </div>
 </div>
 <div class="contentCars">
