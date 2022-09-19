@@ -7,8 +7,10 @@
 /////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
+import { VehicleType, _Event } from '../models/event';
 import { User } from '../models/user';
 import { AccountService } from '../services/account.service';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-holidays',
@@ -17,7 +19,17 @@ import { AccountService } from '../services/account.service';
 })
 export class HolidaysComponent implements OnInit {
 
-  constructor(private accountService: AccountService) { }
+  events: _Event[] = [];
+
+  constructor(private accountService: AccountService, private eventService: EventService) {
+    this.eventService.getEventByCategory('event/category/', '3').subscribe(
+        result => {this.events = result;
+        console.log(result);
+      }, error => {
+        console.log(error);
+      }
+    )
+  }
 
   user: User | undefined;
 
@@ -28,6 +40,9 @@ export class HolidaysComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public setVehicleType(type: number){
+    return VehicleType[type];
+  }
 
 
 }

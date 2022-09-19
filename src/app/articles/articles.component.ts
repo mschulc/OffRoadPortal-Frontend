@@ -19,7 +19,6 @@ import { ArticleService } from '../services/article.service';
 export class ArticlesComponent implements OnInit {
 
   articles: Article[] = [];
-  baseURL: string = environment.apiUrl;
 
   constructor(private articleService: ArticleService) {
     this.articleService.getArticles('article').subscribe(result => {

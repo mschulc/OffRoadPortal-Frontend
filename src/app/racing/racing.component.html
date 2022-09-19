@@ -1,1 +1,12 @@
-<p>racing works!</p>
+<div *ngFor="let _event of events">
+  <div [routerLink]="['/eventview', _event.id]" class="row">
+    <div class="col-md-4 image">
+    </div>
+    <div class="col-md-8 content d-block">
+      <h5>{{_event.eventName}}</h5>
+      <h6>{{_event.eventDescription}}</h6>
+      <h6>{{_event.startEventDate}}</h6>
+      <h5>{{setVehicleType(_event.type)}}</h5>
+    </div>
+  </div>
+</div>

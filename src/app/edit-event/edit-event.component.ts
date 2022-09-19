@@ -36,5 +36,4 @@ export class EditEventComponent implements OnInit {
     console.log(this.model)
     console.log(this.file)
   }
-
 }
